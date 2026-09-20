@@ -1,0 +1,425 @@
+/* ===== HERO SECTION ===== */
+
+/* Apply Intel One Mono font to the entire page */
+body {
+  /* Set font family to Intel One Mono with fallback fonts */
+  font-family: 'Intel One Mono', monospace;
+  /* Set default margin to 0 */
+  margin: 0;
+  /* Set default padding to 0 */
+  padding: 0;
+}
+
+/* Style the header (hero section) */
+header {
+  /* Set background color to Intel blue */
+  background-color: #0071c5;
+  /* Add padding for spacing inside the header */
+  padding: 60px 20px;
+  /* Center all content in the header */
+  text-align: center;
+  /* Add a nice shadow beneath the header */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the container div inside the header */
+header div {
+  /* Set a maximum width for better readability on large screens */
+  max-width: 800px;
+  /* Center the container horizontally */
+  margin: 0 auto;
+}
+
+/* Style the Intel logo */
+header img {
+  /* Set the logo width to be responsive */
+  width: 120px;
+  /* Make the height adjust automatically to maintain aspect ratio */
+  height: auto;
+  /* Add spacing below the logo */
+  margin-bottom: 30px;
+}
+
+/* Style the main heading */
+header h1 {
+  /* Set text color to white for contrast against blue background */
+  color: white;
+  /* Set font size for impact */
+  font-size: 36px;
+  /* Add margin below the heading */
+  margin: 0 0 20px 0;
+  /* Improve readability with better line spacing */
+  line-height: 1.2;
+  /* Prevent text from wrapping to next line */
+  white-space: nowrap;
+}
+
+/* Style the description paragraph */
+header p {
+  /* Set text color to light color for contrast */
+  color: #e0e0e0;
+  /* Set a comfortable font size for reading */
+  font-size: 18px;
+  /* Add margin to the paragraph */
+  margin: 0;
+  /* Improve readability with better line spacing */
+  line-height: 1.6;
+}
+
+/* Style the earth icon below the hero subheading */
+.earth-icon {
+  font-size: 48px;
+  line-height: 1;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ===== TIMELINE SECTION ===== */
+
+/* Style the timeline section container */
+section {
+  /* Use Flexbox to arrange cards horizontally */
+  display: flex;
+  /* Prevent cards from wrapping - keep them in a single row */
+  flex-wrap: nowrap;
+  /* Enable horizontal scrolling */
+  overflow-x: auto;
+  /* Set width to accommodate 3 wider landscape cards */
+  width: 1060px;
+  /* Center the section on the page */
+  margin: 60px auto;
+  /* Add padding for spacing inside the section */
+  padding: 20px;
+  /* Set background color for the section */
+  background-color: #f5f5f5;
+  /* Add gap between cards */
+  gap: 20px;
+  /* Add rounded corners to the section */
+  border-radius: 8px;
+  /* Smooth scrolling behavior */
+  scroll-behavior: smooth;
+  /* Snap smoothly from one card to the next */
+  scroll-snap-type: x mandatory;
+  /* Keep snapped cards clear of the section padding */
+  scroll-padding: 20px;
+}
+
+/* Style each timeline card */
+section div {
+  /* Set a wider fixed width for landscape images */
+  width: 340px;
+  /* Keep the card width inclusive of its padding */
+  box-sizing: border-box;
+  /* Prevent cards from shrinking */
+  flex-shrink: 0;
+  /* Add padding inside the card */
+  padding: 30px 20px;
+  /* Set background color to white */
+  background-color: white;
+  /* Add rounded corners */
+  border-radius: 8px;
+  /* Add a subtle shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Allow smooth transitions for hover effects */
+  transition: all 0.3s ease;
+  /* Make each card a horizontal scroll snap point */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Add hover effect to cards */
+section div:hover {
+  /* Lift the card up when hovered */
+  transform: translateY(-10px);
+  /* Increase the shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style cover images on cards */
+.card-cover {
+  /* Make image full width of card including padding area */
+  width: calc(100% + 40px);
+  /* Set a fixed height for the cover */
+  height: 180px;
+  /* Ensure image fits nicely */
+  object-fit: cover;
+  /* Position at top of card, spanning full width */
+  margin: -30px -20px 20px -20px;
+  /* Add rounded corners to top of image */
+  border-radius: 8px 8px 0 0;
+  /* Make image display as block to remove bottom spacing */
+  display: block;
+}
+
+/* Show the image as the front of the new image cards */
+.image-card {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+}
+
+.image-card .card-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: white;
+  margin: 0;
+  border-radius: 8px;
+  transition: opacity 0.5s ease;
+}
+
+/* Keep the card text hidden until the image card is hovered */
+.image-card h2,
+.image-card h3,
+.image-card p {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-card:hover .card-cover {
+  opacity: 0.25;
+}
+
+.image-card:hover h2,
+.image-card:hover h3,
+.image-card:hover p {
+  opacity: 1;
+}
+
+/* Style cover images at bottom of cards */
+.card-cover-bottom {
+  /* Make image full width of card including padding area */
+  width: calc(100% + 40px);
+  /* Set a fixed height for the cover */
+  height: 180px;
+  /* Ensure image fits nicely */
+  object-fit: cover;
+  /* Position at top with negative margins to remove top space */
+  margin: -30px -20px 20px -20px;
+  /* Add rounded corners to bottom of image */
+  border-radius: 0 0 8px 8px;
+  /* Make image display as block to remove bottom spacing */
+  display: block;
+}
+
+/* Style the year heading (h2) */
+section h2 {
+  /* Set text color to Intel blue */
+  color: #0071c5;
+  /* Make the font size large and bold */
+  font-size: 36px;
+  /* Center the text */
+  text-align: center;
+  /* Remove default margins and set custom margins */
+  margin: 0 0 15px 0;
+  /* Font weight is already bold by default for h2 */
+}
+
+/* Style the card title (h3) */
+section h3 {
+  /* Set text color to dark gray */
+  color: #333;
+  /* Set font size */
+  font-size: 18px;
+  /* Set initial opacity to transparent */
+  opacity: 0;
+  /* Smooth fade-in transition */
+  transition: opacity 0.5s ease;
+  /* Add margin below the title */
+  margin: 0 0 12px 0;
+}
+
+/* Show h3 when card is hovered */
+section div:hover h3 {
+  /* Fade in the title on hover */
+  opacity: 1;
+}
+
+/* Style the description paragraph in timeline cards */
+section p {
+  /* Set text color to dark gray */
+  color: #666;
+  /* Set font size */
+  font-size: 14px;
+  /* Set initial opacity to transparent */
+  opacity: 0;
+  /* Smooth fade-in transition */
+  transition: opacity 0.5s ease;
+  /* Add line spacing for readability */
+  line-height: 1.5;
+  /* Remove default margins */
+  margin: 0;
+}
+
+/* Show paragraph when card is hovered */
+section div:hover p {
+  /* Fade in the description on hover */
+  opacity: 1;
+}
+
+/* Center the instruction below the timeline */
+body > p {
+  text-align: center;
+}
+
+/* ===== RESPONSIVE DESIGN FOR SMALL SCREENS ===== */
+
+/* Media query for tablets and small devices (screens 768px and below) */
+@media (max-width: 768px) {
+  /* Adjust header for smaller screens */
+  header {
+    /* Reduce padding for mobile */
+    padding: 40px 15px;
+  }
+
+  /* Adjust header logo for smaller screens */
+  header img {
+    /* Make logo smaller on mobile */
+    width: 80px;
+    /* Reduce spacing below logo */
+    margin-bottom: 20px;
+  }
+
+  /* Adjust main heading for smaller screens */
+  header h1 {
+    /* Reduce font size for mobile */
+    font-size: 24px;
+    /* Reduce margin below heading */
+    margin: 0 0 15px 0;
+  }
+
+  /* Adjust description paragraph for smaller screens */
+  header p {
+    /* Reduce font size for mobile */
+    font-size: 14px;
+  }
+
+  /* Adjust timeline section for smaller screens */
+  section {
+    /* Allow cards to wrap to next line */
+    flex-wrap: wrap;
+    /* Change from fixed width to auto width */
+    width: auto;
+    /* Allow full width for wrapping */
+    max-width: 100%;
+    /* Reduce margin for mobile */
+    margin: 40px auto;
+    /* Reduce padding for mobile */
+    padding: 15px;
+    /* Center content when wrapped */
+    justify-content: center;
+  }
+
+  /* Adjust timeline cards for smaller screens */
+  section div {
+    /* Make cards responsive - flex basis for 2 columns with gap */
+    flex: 0 1 calc(50% - 10px);
+    /* Minimum width to ensure readability */
+    min-width: 250px;
+    /* Reduce padding inside cards */
+    padding: 20px 15px;
+  }
+
+  /* Adjust year heading for smaller screens */
+  section h2 {
+    /* Reduce font size for mobile */
+    font-size: 28px;
+    /* Reduce margin */
+    margin: 0 0 10px 0;
+  }
+
+  /* Adjust card title for smaller screens */
+  section h3 {
+    /* Reduce font size for mobile */
+    font-size: 16px;
+    /* Reduce margin */
+    margin: 0 0 8px 0;
+  }
+
+  /* Adjust description in cards for smaller screens */
+  section p {
+    /* Reduce font size for mobile */
+    font-size: 12px;
+  }
+}
+
+/* Media query for mobile phones (screens 480px and below) */
+@media (max-width: 480px) {
+  /* Adjust header for very small screens */
+  header {
+    /* Further reduce padding for mobile */
+    padding: 30px 10px;
+  }
+
+  /* Adjust header logo for very small screens */
+  header img {
+    /* Make logo even smaller */
+    width: 60px;
+    /* Further reduce spacing below logo */
+    margin-bottom: 15px;
+  }
+
+  /* Adjust main heading for very small screens */
+  header h1 {
+    /* Further reduce font size for mobile */
+    font-size: 18px;
+    /* Reduce margin below heading */
+    margin: 0 0 10px 0;
+  }
+
+  /* Adjust description paragraph for very small screens */
+  header p {
+    /* Further reduce font size for mobile */
+    font-size: 12px;
+  }
+
+  /* Adjust timeline section for very small screens */
+  section {
+    /* Allow cards to stack vertically */
+    flex-wrap: wrap;
+    /* Change from fixed width to auto */
+    width: auto;
+    /* Allow full width */
+    max-width: 100%;
+    /* Center content when stacked */
+    justify-content: center;
+  }
+
+  /* Adjust timeline cards for very small screens */
+  section div {
+    /* Stack in single column on very small screens */
+    flex: 0 1 100%;
+    /* Make cards full width */
+    width: 100%;
+    /* Further reduce padding inside cards */
+    padding: 15px 12px;
+  }
+
+  /* Adjust year heading for very small screens */
+  section h2 {
+    /* Further reduce font size for mobile */
+    font-size: 22px;
+    /* Reduce margin */
+    margin: 0 0 8px 0;
+  }
+
+  /* Adjust card title for very small screens */
+  section h3 {
+    /* Further reduce font size for mobile */
+    font-size: 14px;
+    /* Reduce margin */
+    margin: 0 0 6px 0;
+  }
+
+  /* Adjust description in cards for very small screens */
+  section p {
+    /* Further reduce font size for mobile */
+    font-size: 11px;
+  }
+}
