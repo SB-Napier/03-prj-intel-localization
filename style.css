@@ -155,16 +155,16 @@ section div:hover {
 .image-card {
   position: relative;
   min-height: 240px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .image-card .card-cover {
   position: absolute;
-  top: 0;
+  top: 73px;
   left: 0;
   z-index: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 73px);
   object-fit: contain;
   background-color: white;
   margin: 0;
@@ -172,14 +172,20 @@ section div:hover {
   transition: opacity 0.5s ease;
 }
 
-/* Keep the card text hidden until the image card is hovered */
-.image-card h2,
+/* Keep the card details hidden until the image card is hovered */
 .image-card h3,
 .image-card p {
   position: relative;
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+/* Keep the year visible on every card */
+.image-card h2 {
+  position: relative;
+  z-index: 1;
+  background-color: white;
 }
 
 .image-card:hover .card-cover {
@@ -191,6 +197,34 @@ section div:hover {
 .image-card:hover p {
   opacity: 1;
 }
+
+/* ===== MODAL HEADER ===== */
+
+/* Lay the icon, title, and close button out as three columns */
+.modal-header-centered {
+  display: flex;
+  align-items: center;
+}
+
+/* Icon and close button share the same fixed width so the title centers between them */
+.modal-header-centered i,
+.modal-header-centered .btn-close {
+  flex: 0 0 2rem;
+  margin: 0;
+}
+
+.modal-header-centered i {
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+/* Title fills the space between the icon and close button and centers its text */
+.modal-header-centered .modal-title {
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0;
+}
+
 
 /* Style cover images at bottom of cards */
 .card-cover-bottom {
@@ -302,8 +336,10 @@ body > p {
 
   /* Adjust timeline section for smaller screens */
   section {
-    /* Allow cards to wrap to next line */
-    flex-wrap: wrap;
+    /* Stack timeline cards vertically */
+    flex-direction: column;
+    /* Keep the cards in one vertical column */
+    flex-wrap: nowrap;
     /* Change from fixed width to auto width */
     width: auto;
     /* Allow full width for wrapping */
@@ -312,16 +348,16 @@ body > p {
     margin: 40px auto;
     /* Reduce padding for mobile */
     padding: 15px;
-    /* Center content when wrapped */
-    justify-content: center;
+    /* Center cards in the vertical timeline */
+    align-items: center;
   }
 
   /* Adjust timeline cards for smaller screens */
   section div {
-    /* Make cards responsive - flex basis for 2 columns with gap */
-    flex: 0 1 calc(50% - 10px);
-    /* Minimum width to ensure readability */
-    min-width: 250px;
+    /* Keep each card at a readable width in the vertical stack */
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 500px;
     /* Reduce padding inside cards */
     padding: 20px 15px;
   }
@@ -354,7 +390,7 @@ body > p {
   /* Adjust header for very small screens */
   header {
     /* Further reduce padding for mobile */
-    padding: 30px 10px;
+    padding: 30px 16px;
   }
 
   /* Adjust header logo for very small screens */
@@ -369,6 +405,8 @@ body > p {
   header h1 {
     /* Further reduce font size for mobile */
     font-size: 18px;
+    /* Allow the long heading to wrap on narrow screens */
+    white-space: normal;
     /* Reduce margin below heading */
     margin: 0 0 10px 0;
   }

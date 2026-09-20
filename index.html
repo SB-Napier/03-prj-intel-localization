@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Intel+One+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap RTL makes Bootstrap utilities and the grid follow right-to-left flow -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons provides the icons used beside the column headings -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -157,5 +161,147 @@
     </div>
   </section>
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <!-- New Bootstrap grid section: three columns on medium and larger screens -->
+  <div class="container my-5">
+    <div class="row g-4">
+      <!-- The col-md-4 class gives this item one-third of the row -->
+      <div class="col-12 col-md-4 text-center">
+        <h2 dir="ltr"><i class="bi bi-tree-fill me-3" aria-hidden="true"></i>Climate Action</h2>
+        <p>Reducing emissions through renewable electricity and efficient manufacturing</p>
+        <!-- data-bs-toggle and data-bs-target open the matching modal below -->
+        <div class="text-center"><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-climate">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></button></div>
+      </div>
+
+      <!-- The same classes create the second responsive column -->
+      <div class="col-12 col-md-4 text-center">
+        <h2 dir="ltr"><i class="bi bi-droplet-fill me-3" aria-hidden="true"></i>Water Stewardship</h2>
+        <p>Conserving water and helping replenish local watersheds</p>
+        <div class="text-center"><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-water">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></button></div>
+      </div>
+
+      <!-- The same classes create the third responsive column -->
+      <div class="col-12 col-md-4 text-center">
+        <h2 dir="ltr"><i class="bi bi-recycle me-3" aria-hidden="true"></i>Waste Reduction</h2>
+        <p>Reducing waste by reusing materials throughout operations</p>
+        <div class="text-center"><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modal-waste">Learn More <i class="bi bi-arrow-left" aria-hidden="true"></i></button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Climate Action -->
+  <div class="modal fade" id="modal-climate" tabindex="-1" aria-labelledby="modal-climate-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- modal-header-centered arranges the icon, title, and close button in three even columns -->
+        <div class="modal-header modal-header-centered">
+          <i class="bi bi-tree-fill" aria-hidden="true"></i>
+          <h2 class="modal-title h5" id="modal-climate-label">Climate Action</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel is reducing emissions through renewable electricity and efficient manufacturing, working
+          toward net-zero greenhouse gas emissions across its global operations by 2040.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Water Stewardship -->
+  <div class="modal fade" id="modal-water" tabindex="-1" aria-labelledby="modal-water-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header modal-header-centered">
+          <i class="bi bi-droplet-fill" aria-hidden="true"></i>
+          <h2 class="modal-title h5" id="modal-water-label">Water Stewardship</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel conserves water and helps replenish local watersheds in the communities where it operates.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Waste Reduction -->
+  <div class="modal fade" id="modal-waste" tabindex="-1" aria-labelledby="modal-waste-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header modal-header-centered">
+          <i class="bi bi-recycle" aria-hidden="true"></i>
+          <h2 class="modal-title h5" id="modal-waste-label">Waste Reduction</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Intel reduces waste by reusing materials throughout its operations and manufacturing processes.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Newsletter subscription form -->
+  <div class="container my-5">
+    <div class="row">
+      <!-- A centered six-column form fills columns 4 through 9 -->
+      <div class="col-12 col-md-6 mx-auto">
+        <form class="border rounded p-4" action="#" method="post" aria-labelledby="newsletter-title" aria-describedby="newsletter-description">
+          <h2 id="newsletter-title" class="h3 text-center">Sustainability Newsletter</h2>
+          <p id="newsletter-description" class="text-center">Receive Intel sustainability news and updates</p>
+
+          <div class="mb-3">
+            <label for="subscriber-name" class="form-label d-block text-center">Name</label>
+            <input type="text" class="form-control text-center" id="subscriber-name" name="name" autocomplete="name" />
+          </div>
+
+          <div class="mb-3">
+            <label for="subscriber-email" class="form-label d-block text-center">Email address <span aria-hidden="true">(required)</span></label>
+            <input type="email" class="form-control text-center" id="subscriber-email" name="email" autocomplete="email" required />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer navigation -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p class="mb-2">&copy; 2026 Intel Corporation</p>
+      <nav aria-label="Footer navigation">
+        <a href="#" class="link-light mx-2">Home</a>
+        <a href="#" class="link-light mx-2">Timeline</a>
+        <a href="#" class="link-light mx-2">Subscribe</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Bootstrap's JavaScript bundle powers the modal open/close behavior -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Languages that are normally read from right to left
+    const rtlLanguages = ['ar', 'arc', 'dv', 'fa', 'he', 'ku', 'ps', 'sd', 'ug', 'ur', 'yi'];
+
+    // Set the page direction to match the language code on the HTML element
+    function updatePageDirection() {
+      const languageCode = document.documentElement.lang.split('-')[0].toLowerCase();
+      document.documentElement.dir = rtlLanguages.includes(languageCode) ? 'rtl' : 'ltr';
+    }
+
+    // Check the initial language when the page loads
+    updatePageDirection();
+
+    // Translation tools can update the language attribute after the page has loaded
+    const languageObserver = new MutationObserver(updatePageDirection);
+    languageObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+  </script>
 </body>
 </html>
